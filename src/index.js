@@ -58,23 +58,43 @@ const styles = {
 //   }
 // };
 
-class SayHello extends React.Component {
-  static PropTypes = {
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired
-  };
-  render() {
-    const { firstName, lastName } = this.props;
-    return (
-      <div>
-        Hello {firstName} {lastName || "Unknown"}
-      </div>
-    );
-  }
-}
+// class SayHello extends React.Component {
+//   static PropTypes = {
+//     firstName: PropTypes.string.isRequired,
+//     lastName: PropTypes.string.isRequired
+//   };
+//   render() {
+//     const { firstName, lastName } = this.props;
+//     return (
+//       <div>
+//         Hello {firstName} {lastName || "Unknown"}
+//       </div>
+//     );
+//   }
+// }
 
 // SayHello.propTypes = {
 //   firstName: PropTypes.string.isRequired,
 //   lastName: PropTypes.string.isRequired
 // };
-render(<SayHello firstName={"Yan"} />, document.getElementById("root"));
+//render(<SayHello firstName={"Yan"} />, document.getElementById("root"));
+// function Message({ message }) {
+//   return <div>{message ? <div>{message}</div> : <div>No message</div>}</div>;
+// }
+
+// render(<Message message={"Hello world"} />, document.getElementById("root"));
+
+const rootElement = document.getElementById("root");
+function tick() {
+  const time = new Date().toLocaleTimeString();
+  const element = (
+    <div>
+      It is
+      <input value={time} />
+      <input value={time} />
+    </div>
+  );
+  render(element, rootElement);
+}
+tick();
+setInterval(tick, 1000);
