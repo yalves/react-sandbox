@@ -46,14 +46,6 @@ const styles = {
 // );
 // render(element, document.getElementById("root"));
 
-function SayHello(props) {
-  return (
-    <div>
-      Hello {props.firstName} {props.lastName || "Unknown"}
-    </div>
-  );
-}
-
 // const PropTypes = {
 //   string(props, propName, componentName) {
 //     if (typeof props[propName] !== "string") {
@@ -66,8 +58,23 @@ function SayHello(props) {
 //   }
 // };
 
-SayHello.propTypes = {
-  firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired
-};
-render(<SayHello firstName={true} />, document.getElementById("root"));
+class SayHello extends React.Component {
+  static PropTypes = {
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired
+  };
+  render() {
+    const { firstName, lastName } = this.props;
+    return (
+      <div>
+        Hello {firstName} {lastName || "Unknown"}
+      </div>
+    );
+  }
+}
+
+// SayHello.propTypes = {
+//   firstName: PropTypes.string.isRequired,
+//   lastName: PropTypes.string.isRequired
+// };
+render(<SayHello firstName={"Yan"} />, document.getElementById("root"));
